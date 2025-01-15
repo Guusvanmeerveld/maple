@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./settings ./services];
+  imports = [./settings ./services ./docker];
 }
