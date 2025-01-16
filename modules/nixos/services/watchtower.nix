@@ -9,6 +9,12 @@ in {
     maple.services.watchtower = {
       enable = lib.mkEnableOption "Enable Watchtower Docker image clean up";
 
+      version = {
+        type = lib.types.str;
+        description = "The version of the Docker image to use. Latest can be found at: https://hub.docker.com/r/containrrr/watchtower";
+        default = "latest";
+      };
+
       schedule = lib.mkOption {
         type = lib.types.str;
         default = "@daily";
@@ -17,8 +23,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.docker.containers."watchtower".services."watchtower" = {
-      image = "containrrr/watchtower";
+    maple.docker.projects."watchtower".services."watchtower" = {
+      image = "containrrr/watchtower:${cfg.version}";
 
       environment = {
         WATCHTOWER_CLEANUP = toString true;
