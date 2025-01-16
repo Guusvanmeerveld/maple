@@ -8,10 +8,10 @@
   baseDir = config.maple.settings.storage.baseDir;
 in {
   options = {
-    custom.applications.services.docker.uptime-kuma = {
+    maple.services.uptime-kuma = {
       enable = lib.mkEnableOption "Enable Uptime Kuma uptime monitoring";
 
-      version = {
+      version = lib.mkOption {
         type = lib.types.str;
         description = "The version of the Docker image to use. Latest can be found at: https://hub.docker.com/r/louislam/uptime-kuma";
         default = pkgs.uptime-kuma.version;

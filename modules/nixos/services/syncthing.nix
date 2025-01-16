@@ -11,7 +11,7 @@ in {
     maple.services.syncthing = {
       enable = lib.mkEnableOption "Enable Syncthing peer-to-peer file synchronization";
 
-      version = {
+      version = lib.mkOption {
         type = lib.types.str;
         description = "The version of the Docker image to use. Latest can be found at: https://github.com/syncthing/core/pkgs/container/syncthing";
         default = pkgs.syncthing.version;

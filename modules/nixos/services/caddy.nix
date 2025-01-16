@@ -27,7 +27,7 @@ in {
     maple.services.caddy = {
       enable = lib.mkEnableOption "Enable Caddy HTTP proxy";
 
-      version = {
+      version = lib.mkOption {
         type = lib.types.str;
         description = "The version of the Docker image to use. Latest can be found at: https://hub.docker.com/_/caddy";
         default = pkgs.caddy.version;

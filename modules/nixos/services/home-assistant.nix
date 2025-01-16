@@ -11,7 +11,7 @@ in {
     maple.services.home-assistant = {
       enable = lib.mkEnableOption "Enable Home Assistant smart home management";
 
-      version = {
+      version = lib.mkOption {
         type = lib.types.str;
         description = "The version of the Docker image to use. Latest can be found at: https://github.com/home-assistant/core/pkgs/container/home-assistant";
         default = pkgs.home-assistant.version;
@@ -40,7 +40,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     maple.docker.projects."home-assistant".services."home-assistant" = {
-      image = "ghcr.io/home-assistant/home-assistant";
+      image = "ghcr.io/home-assistant/home-assistant:${cfg.version}";
 
       volumes = ["${cfg.dirs.config}:/config"];
 

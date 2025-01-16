@@ -9,7 +9,7 @@ in {
     maple.services.watchtower = {
       enable = lib.mkEnableOption "Enable Watchtower Docker image clean up";
 
-      version = {
+      version = lib.mkOption {
         type = lib.types.str;
         description = "The version of the Docker image to use. Latest can be found at: https://hub.docker.com/r/containrrr/watchtower";
         default = "latest";

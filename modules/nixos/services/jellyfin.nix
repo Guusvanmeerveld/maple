@@ -11,7 +11,7 @@ in {
     maple.services.jellyfin = {
       enable = lib.mkEnableOption "Enable Jellyfin media streaming";
 
-      version = {
+      version = lib.mkOption {
         type = lib.types.str;
         description = "The version of the Docker image to use. Latest can be found at: https://hub.docker.com/r/jellyfin/jellyfin";
         default = pkgs.jellyfin.version;
