@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./caddy.nix ./watchtower.nix ./uptime-kuma.nix];
+  imports = [./caddy.nix ./watchtower.nix ./uptime-kuma.nix ./home-assistant.nix];
 }
