@@ -10,10 +10,7 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: {
+  outputs = {...}: {
     nixosModules = {
       default = import ./modules/nixos;
     };
